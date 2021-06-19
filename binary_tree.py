@@ -37,6 +37,24 @@ def get_view_node(node, depth=0):
 	else:
 		return node.value
 
+def go_wide(node):
+	queue = []
+	values = []
+	queue.append(node)
+
+	while len(queue) > 0:
+		temp_node = queue.pop(0)
+
+		values.append(temp_node.value)
+		if temp_node.left != None:
+			queue.append(temp_node.left)
+
+		if temp_node.right != None:
+			queue.append(temp_node.right)
+
+	return values
+
+
 root = Node(8)
 add_node(root, 5)
 add_node(root, 11)
