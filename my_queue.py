@@ -8,21 +8,29 @@ class Queue:
     def push(self, item: int) -> None:
         self._list.append(item)
 
+    def push_many(self, *items: tuple[int]) -> None:
+        for item in items:
+            self.push(item)
+
     def pop(self) -> int:
         return self._list.pop(0)
 
+    def is_empty(self) -> bool:
+        return not self._list
 
-queue = Queue()
-queue.push(2)
-queue.push(7)
-queue.push(1)
-queue.push(6)
 
-print('Result of easy queue')
-print(queue.pop())
-print(queue.pop())
-print(queue.pop())
-print(queue.pop())
+if __name__ == '__main__':
+    queue = Queue()
+    queue.push(2)
+    queue.push(7)
+    queue.push(1)
+    queue.push(6)
+
+    print('Result of easy queue')
+    print(queue.pop())
+    print(queue.pop())
+    print(queue.pop())
+    print(queue.pop())
 
 
 class ListItem:
@@ -51,14 +59,15 @@ class CustomQueue:
         return value
 
 
-queue = CustomQueue()
-queue.push(2)
-queue.push(7)
-queue.push(1)
-queue.push(6)
+if __name__ == '__main__':
+    queue = CustomQueue()
+    queue.push(2)
+    queue.push(7)
+    queue.push(1)
+    queue.push(6)
 
-print('Result of custom queue')
-print(queue.pop())
-print(queue.pop())
-print(queue.pop())
-print(queue.pop())
+    print('Result of custom queue')
+    print(queue.pop())
+    print(queue.pop())
+    print(queue.pop())
+    print(queue.pop())
