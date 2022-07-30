@@ -14,13 +14,17 @@ class Person:
 
 def wide_search(first_element: Person, searching_age: int) -> Person:
     queue: Queue = Queue()
+    checked_people: list[Person] = []
 
     queue.push_many(*first_element.friends.values())
     while not queue.is_empty():
         new_element: Person = queue.pop()
         if new_element.age == searching_age:
             return new_element
-        queue.push_many(*new_element.friends.values())
+        checked_people.append(new_element)
+        for element in new_element.friends.values():
+            if element not in checked_people:
+                queue.push(element)
 
     raise NotFound('Searching age not found')
 
