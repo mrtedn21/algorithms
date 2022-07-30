@@ -29,8 +29,8 @@ def quick_sort(arr: list[int]) -> list[int]:
     return quick_sort(left_arr) + [initial_element] + quick_sort(right_arr)
 
 
-initial_arr = [4, 5, 1, 7, 5, 2, 6, 7, 4, 3, 6, 4, 3, 1, 4, 5, 6]
-sorted_arr = quick_sort(initial_arr)
+initial_arr: list[int] = [4, 5, 1, 7, 5, 2, 6, 7, 4, 3, 6, 4, 3, 1, 4, 5, 6]
+sorted_arr: list[int] = quick_sort(initial_arr)
 
 print(f'Initial arr: {initial_arr}')
 print(f'Sorted arr: {sorted_arr}')
