@@ -1,29 +1,32 @@
-import random
+class NotFound(Exception):
+    pass
 
 
-def bin_search(arr, num):
+def bin_search(arr: list[int], num: int) -> int:
     """
     function get searching value
     and return index of finding element
     """
-    index = int(len(arr) / 2)
-    delta = int(index / 2)
+    low: int = 0
+    high: int = len(arr) - 1
 
-    while True:
-        if arr[index] > num:
-            index -= delta
-        elif arr[index] < num:
-            index += delta
+    while low <= high:
+        mid: int = int((low + high) / 2)
+        guess: int = arr[mid]
+        if guess == num:
+            return mid
+        if guess > num:
+            high = mid - 1
         else:
-            return index
-        delta = int(delta / 2)
+            low = mid + 1
+
+    raise NotFound
 
 
-array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-number = 8
-index = bin_search(array, number)
+array: list[int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+number: int = 1
+position: int = bin_search(array, number)
 
 print(f'Initial array: {array}')
 print(f'Initial number: {number}')
-print(f'Index of this number is: {index}')
-
+print(f'Position of this number is: {position}')
