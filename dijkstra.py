@@ -95,7 +95,7 @@ class DijkstraAlg:
             if not len(available_nodes):
                 break
 
-            light_element = sorted(
+            light_element: Node = sorted(
                 available_nodes, key=lambda element: element.weight
             )[0]
             yield light_element
@@ -110,7 +110,7 @@ class DijkstraAlg:
                 else:
                     brother_node: Node = edge.last
 
-                new_weight = node.weight + edge.weight
+                new_weight: int = node.weight + edge.weight
                 if brother_node.weight > new_weight:
                     brother_node.weight = new_weight
                     brother_node.parent = node
