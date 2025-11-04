@@ -24,7 +24,7 @@ func SelectionSort(arr []int) []int {
 	for range len_arr {
 		min_index, min_value := FindMin(arr)
 		res = append(res, min_value)
-		arr = slices.Delete(arr, min_index, min_index + 1)
+		arr = slices.Delete(arr, min_index, min_index+1)
 	}
 	return res
 }
